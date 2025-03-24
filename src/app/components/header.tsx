@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 
 
+
 const Header: React.FC = () => {
     
   return (
@@ -14,7 +15,7 @@ const Header: React.FC = () => {
             <li><Link href="/" className="hover:underline">Home</Link></li>
             <li><Link href="/shop" className="hover:underline">Shop</Link></li>
             <li><Link href="/cart" className="hover:underline">Cart</Link></li>
-            
+          
           </ul>
         </nav>
       </div>

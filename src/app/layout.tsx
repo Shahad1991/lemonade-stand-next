@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/header";
+import { CartProvider } from "./context/CartContext";
 
 
 
@@ -27,11 +28,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Header />
-      <body
-        className= {`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <Header/>
+      <body>
+        <CartProvider>
+          {children}
+        </CartProvider>
       </body>
       
     </html>
