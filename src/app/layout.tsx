@@ -28,8 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Header/>
+      
       <body>
+        <Header />
         <CartProvider>
           {children}
         </CartProvider>

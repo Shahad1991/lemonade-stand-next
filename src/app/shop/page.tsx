@@ -7,6 +7,8 @@ interface Cocktail {
   idDrink: string;
   strDrink: string;
   strDrinkThumb: string;
+  description: string;
+  price: number;
 }
 
 export default function ShopPage() {
@@ -14,6 +16,7 @@ export default function ShopPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { addToCart } = useCart();
+  const [clicked, setClicked] = useState<{ [key: string]: boolean }>({});
 
   useEffect(() => {
     const fetchCocktails = async () => {
@@ -50,8 +53,8 @@ export default function ShopPage() {
   }
 
   return (
-    <div className="container mx-auto p-4">
-      <h2 className="text-xl font-semibold">Available Cocktails</h2>
+    <div className="container m-auto  p-4">
+     
       <div className="space-y-4 mt-4">
         {cocktails.map((cocktail) => (
           <div key={cocktail.idDrink} className="flex justify-between items-center border p-4 rounded-lg">
@@ -59,12 +62,20 @@ export default function ShopPage() {
               <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} className="w-16 h-16 object-cover rounded-lg mr-4" />
               <span className="font-semibold">{cocktail.strDrink}</span>
             </div>
+            <span> Price: $10</span>
             <button
-              onClick={() => addToCart({ id: cocktail.idDrink, name: cocktail.strDrink, price: 5 })}
-              className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"
+              onClick={() => {
+                addToCart({ id: cocktail.idDrink, name: cocktail.strDrink, price: 5 });
+                setClicked((prevState) => ({ ...prevState, [cocktail.idDrink]: true }));
+              }}
+              className={`py-2 px-4 rounded text-white ${
+                clicked[cocktail.idDrink] ? "bg-green-500" : "bg-green-800"}
+              }`}
             >
-              Add to Cart
+              {clicked[cocktail.idDrink] ? "Added to Cart" : "Add to Cart"}
             </button>
+            
+            
           </div>
         ))}
       </div>

@@ -7,9 +7,9 @@ import Link from 'next/link';
 const Header: React.FC = () => {
     
   return (
-    <nav className="bg-green-600 text-white py-4">
+    <nav className="text-white py-4"style={{backgroundColor: '#a2ac5c'}}>
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Fruit Market</h1>
+        <h1 className="text-2xl font-bold">Lemonade Stand</h1>
         <nav>
             <ul className="list-none p-0 flex space-x-4">
             <li><Link href="/" className="hover:underline">Home</Link></li>

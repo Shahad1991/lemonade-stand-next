@@ -14,7 +14,9 @@ const ProfitCalculator = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container m-auto p-4 text-center rounded-lg" style={{backgroundColor: '#a2ac5c'}}>
+      <h1 className="text-3xl font-bold mb-4">Lemonade Stand</h1>
+      <p className="text-xl mb-4">Welcome to the Lemonade Stand!</p>
       
       <p className="text-xl mb-4">My Profit: ${profit}</p>
       <button
